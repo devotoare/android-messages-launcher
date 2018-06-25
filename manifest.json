@@ -4,16 +4,20 @@
   "description": "Launches the new Android Messages in a dedicated window.",
   "version": "0.0.1",
   "author": "Jon Grffith",
-  "background" : {
+  "icons": {
+    "48": "icon_48.png",
+    "128": "icon_128.png"
+  },
+  "background": {
     "scripts": ["background.js"],
     "persistent": false
   },
-  "permissions" : [
+  "permissions": [
     "tabs",
     "http://*/*",
     "https://*/*"
-   ],
+  ],
   "browser_action": {
-    "default_icon": "messages.png"
+    "default_icon": "icon_128.png"
   }
 }
