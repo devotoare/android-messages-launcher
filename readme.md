@@ -7,3 +7,4 @@ Launches the new Android Messages in a dedicated window.
 
 ## Raodmap
 1. Option to auto launch when Chrome opens.
+2. Add keybinding option.
