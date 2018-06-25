@@ -1,14 +1,24 @@
 function findWindow(url = 'https://messages.android.com/') {
+  var tabFound = false;
   // Find already open tabs and remove them to prevent duplicates
   chrome.tabs.query({currentWindow: false}, function(tabs) {
     tabs.forEach(function(tab) {
       if(tab.url === url) {
-        chrome.tabs.remove(tab.id);
+        chrome.windows.update(tab.windowId, {focused: true});
+        tabFound = true;
       }
     });
   });
 
-  // Create new window, which grants focus
+  setTimeout(function(){
+    if (!tabFound) {
+      createWindow();
+    }
+  }, 50);
+}
+
+function createWindow(url = 'https://messages.android.com/') {
+  // Create new window
   chrome.windows.create({
     focused: true,
     incognito: false,
