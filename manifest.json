@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
-  "name": "Android Messages Launcher",
-  "description": "Launches the new Android Messages in a dedicated window.",
-  "version": "0.0.2",
+  "name": "Google Messages Launcher",
+  "description": "Launches Google Messages in a dedicated window.",
+  "version": "0.0.3",
   "author": "Jon Grffith",
   "icons": {
     "48": "icon_48.png",
