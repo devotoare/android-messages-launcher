@@ -1,4 +1,4 @@
-function findWindow(url = 'https://messages.google.com/') {
+function findWindow(url = 'https://messages.google.com/web/') {
   var tabFound = false;
   // Find already open tabs and remove them to prevent duplicates
   chrome.tabs.query({currentWindow: false}, function(tabs) {
@@ -17,7 +17,7 @@ function findWindow(url = 'https://messages.google.com/') {
   }, 50);
 }
 
-function createWindow(url = 'https://messages.google.com/') {
+function createWindow(url = 'https://messages.google.com/web/') {
   // Create new window
   chrome.windows.create({
     focused: true,
