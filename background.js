@@ -1,9 +1,9 @@
-function findWindow(url = 'https://messages.google.com/web/') {
+function findWindow(url = 'https://messages.google.com/') {
   var tabFound = false;
   // Find already open tabs and remove them to prevent duplicates
   chrome.tabs.query({currentWindow: false}, function(tabs) {
     tabs.forEach(function(tab) {
-      if(tab.url === url) {
+      if(tab.url.includes(url)) {
         chrome.windows.update(tab.windowId, {focused: true});
         tabFound = true;
       }
