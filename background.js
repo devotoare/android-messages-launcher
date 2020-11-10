@@ -2,9 +2,11 @@ var width = 1000;
 var height = 650;
 
 chrome.storage.sync.get({
-  autoUpdate: true
+  autoUpdate: true,
+  autoStart: true
 }, function(items) {
-  autoUpdate = items.autoUpdate
+  autoUpdate = items.autoUpdate,
+  autoStart = items.autoStart
   if (autoUpdate) {
     chrome.runtime.onMessage.addListener(function requested(request) {
       if (request.method === 'resize') {
@@ -59,6 +61,13 @@ function handleWindow() {
     }
   }, 50);
 }
+
+chrome.runtime.onStartup.addListener(function() {
+  if (autoStart) {
+    restore_options();
+	handleWindow();
+  }
+});
 
 chrome.commands.onCommand.addListener( function(command) {
   restore_options();
